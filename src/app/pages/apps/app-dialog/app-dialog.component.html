@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>{{ data ? 'Uygulama Düzenle' : 'Yeni Uygulama Ekle' }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="appForm">
+    <ng-container *ngIf="products$ | async as products; else loading">
+      <mat-form-field>
+        <mat-label>Uygulama adı</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tanım</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div class="form-group-flex">
+        <mat-form-field>
+          <mat-label>Bağlayabileceğiniz ürünler</mat-label>
+          <mat-select formControlName="productIds" multiple>
+            <mat-option *ngFor="let product of products" [value]="product.id">{{ product.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-stroked-button color="accent" (click)="openProductDialog()">Yeni Ürün</button>
+      </div>
+    </ng-container>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Vazgeç</button>
+
+  <button mat-flat-button color="primary"
+          *ngIf="!data"
+          (click)="addApp()"
+          [disabled]="appForm.invalid">Ekle</button>
+
+  <button mat-flat-button color="primary"
+          *ngIf="data"
+          (click)="updateApp()"
+          [disabled]="appForm.invalid">Güncelle</button>
+</div>
+
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>

@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  background-color: #f3f3f3;
+}
+
+.app-main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+table,
+.mat-form-field {
+  width: 100%;
+}
+
+.form-group-flex {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .mat-form-field {
+    flex: 1;
+  }
+}

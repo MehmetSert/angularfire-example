@@ -1,0 +1,11 @@
+<header class="header">
+  <mat-toolbar color="primary">
+    <span>Example Firebase project with Angular</span>
+    <span class="example-spacer"></span>
+    <ul class="main-menu">
+      <li *ngFor="let menuItem of menuItems">
+        <a [routerLink]="menuItem.url" routerLinkActive="active">{{ menuItem.title }}</a>
+      </li>
+    </ul>
+  </mat-toolbar>
+</header>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularfire-example-82b3e": {
+      "hosting": {
+        "angularfire-example": [
+          "angularfire-example-82b3e"
+        ]
+      }
+    }
+  }
+}
